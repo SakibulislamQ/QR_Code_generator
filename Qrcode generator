@@ -25,12 +25,10 @@ def qr_save():
     
     get_txt = txt.get()
     qr_make_image = qrcode.make(get_txt)
-    qr_image = ImageTk.PhotoImage(qr_make_image)
 
     file = asksaveasfile(title='Save image',filetypes = [('PNG','*.png'),('JPEG','*.jpg')],defaultextension = [('PNG','*.png'),('JPEG','*.jpg')],initialfile = rename())
-        
+    qr_make_image.save(file.name)
     
-
 # making a window
 qr_code = tkinter.Tk()
 qr_code.title('QR Code Generator')
