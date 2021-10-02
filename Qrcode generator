@@ -29,9 +29,11 @@ def qr_save():
     file = asksaveasfile(title='Save image',filetypes = [('PNG','*.png'),('JPEG','*.jpg')],defaultextension = [('PNG','*.png'),('JPEG','*.jpg')],initialfile = rename())
     qr_make_image.save(file.name)
     
+    
 # making a window
 qr_code = tkinter.Tk()
-qr_code.title('QR Code Generator')
+qr_code.title('QR Code Creator')
+qr_code.iconbitmap('qrcodegen\qrcodecreator.ico')
 qr_code.geometry('600x500')
 qr_code.resizable(0,0)
 qr_code.configure(bg='LightSkyBlue1')
@@ -39,9 +41,10 @@ qr_code.configure(bg='LightSkyBlue1')
 
 # text imput
 txt = tkinter.Entry(qr_code,bd=0,font=('Arila', 15),width=50)
+txt.focus_set()
 txt.place(x=30,y=30)
 # making creat button
-but_creat = tkinter.Button(qr_code,text='Generate',font=('Arial',15),bd=0,bg='LightPink1',fg='DarkBlue', activebackground='white',activeforeground='DarkBlue',command=qr_preview)
+but_creat = tkinter.Button(qr_code,text='Create',font=('Arial',15),bd=0,bg='LightPink1',fg='DarkBlue', activebackground='white',activeforeground='DarkBlue',command=qr_preview)
 but_creat.place(x=65,y=90)
 
 # making save button
